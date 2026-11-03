@@ -1,0 +1,285 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 1,
+      "x": 3,
+      "y": 0,
+      "z": 0,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 2,
+      "x": 6,
+      "y": 0,
+      "z": 0,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 3,
+      "x": 9,
+      "y": 0,
+      "z": 0,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 4,
+      "x": 0,
+      "y": 2,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 5,
+      "x": 3,
+      "y": 2,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 6,
+      "x": 6,
+      "y": 2,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 7,
+      "x": 9,
+      "y": 2,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 8,
+      "x": 1.5,
+      "y": 1,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 9,
+      "x": 4.5,
+      "y": 1,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    },
+    {
+      "id": 10,
+      "x": 7.5,
+      "y": 1,
+      "z": 0,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.15
+    }
+  ],
+  "edges": [
+    {
+      "id": 0,
+      "source": 0,
+      "target": 4,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 1,
+      "source": 1,
+      "target": 5,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 2,
+      "source": 2,
+      "target": 6,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 3,
+      "source": 3,
+      "target": 7,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 4,
+      "source": 4,
+      "target": 5,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 5,
+      "source": 5,
+      "target": 6,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 6,
+      "source": 6,
+      "target": 7,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 7,
+      "source": 0,
+      "target": 8,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 8,
+      "source": 8,
+      "target": 4,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 9,
+      "source": 8,
+      "target": 1,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 10,
+      "source": 8,
+      "target": 5,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 9,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 12,
+      "source": 9,
+      "target": 5,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 13,
+      "source": 9,
+      "target": 2,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 14,
+      "source": 9,
+      "target": 6,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 15,
+      "source": 2,
+      "target": 10,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 16,
+      "source": 10,
+      "target": 6,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 17,
+      "source": 10,
+      "target": 3,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    },
+    {
+      "id": 18,
+      "source": 10,
+      "target": 7,
+      "redundancy": 0.25,
+      "stiffness": 1000.0
+    }
+  ],
+  "config": {
+    "view_plane": "XY"
+  }
+}

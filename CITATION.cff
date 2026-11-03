@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use Redundancy Explorer to conduct research, please cite it as below."
+type: software
+title: "Redundancy Explorer: Interactive Browser Application for Design Space Exploration Guided by Redundancy Matrices"
+abstract: >-
+  Interactive browser application for design space exploration guided by
+  redundancy matrices, running entirely client-side with real-time redundancy
+  visualization, topology editing, and gradient- and policy-guided
+  redundancy homogenization.
+authors:
+  - family-names: Kannenberg
+    given-names: Fabian
+    affiliation: "Institute for Computational Design and Construction (ICD), University of Stuttgart"
+  - family-names: Forster
+    given-names: David
+    affiliation: "Institute for Structural Mechanics (IBB), University of Stuttgart"
+  - family-names: Bischoff
+    given-names: Manfred
+    affiliation: "Institute for Structural Mechanics (IBB), University of Stuttgart"
+  - family-names: Menges
+    given-names: Achim
+    affiliation: "Institute for Computational Design and Construction (ICD), University of Stuttgart"
+license: MIT
+url: "https://redundancy-explorer.github.io"
+repository-code: "https://github.com/redundancy-explorer/redundancy-explorer.github.io"
+doi: 10.18419/darus-6512
+keywords:
+  - redundancy matrix
+  - structural design
+  - design space exploration
+  - interactive visualization
+  - web application

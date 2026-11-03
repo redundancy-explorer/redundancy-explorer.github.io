@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redundancy Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color-scheme: dark;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: #252525;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 2px solid #333;
+        }
+
+        #canvas-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        canvas {
+            background: #1a1a1a;
+            cursor: grab;
+            flex: 1;
+        }
+
+        canvas:active {
+            cursor: grabbing;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            white-space: nowrap;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #999;
+        }
+
+        .info-section {
+            background: #2a2a2a;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 3px solid #666;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .info-label {
+            color: #999;
+        }
+
+        .info-value {
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #666;
+        }
+
+        button:disabled {
+            background: #3a3a3a;
+            cursor: not-allowed;
+        }
+
+        button.danger {
+            background: #777;
+        }
+
+        button.danger:hover {
+            background: #888;
+        }
+
+
+        .legend {
+            margin-top: 20px;
+            padding: 12px;
+            background: #2a2a2a;
+            border-radius: 6px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #555;
+        }
+
+        .legend-line {
+            width: 30px;
+            height: 3px;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        #viewport-buttons {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            z-index: 100;
+        }
+
+        .viewport-button {
+            /* override the global sidebar button rule (width: 100%,
+               margin: 8px 0), which would stack the flex row vertically */
+            width: auto;
+            margin: 0;
+            flex: 0 0 auto;
+            padding: 10px 16px;
+            background: rgba(37, 37, 37, 0.95);
+            color: #e0e0e0;
+            border: 1px solid #555;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .viewport-button:hover {
+            background: rgba(85, 85, 85, 0.95);
+            border-color: #777;
+        }
+
+        .viewport-button.active {
+            background: rgba(85, 85, 85, 0.95);
+            border-color: #aaa;
+        }
+
+        #policy-toggle-btn.policy-mode {
+            background: rgba(76, 175, 80, 0.9);
+            border-color: #4CAF50;
+        }
+
+        #policy-toggle-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        #edit-toggle-btn.active {
+            background: rgba(255, 152, 0, 0.9);
+            border-color: #FF9800;
+        }
+
+        #edit-help {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(42, 42, 42, 0.9);
+            border: 1px solid #666;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #bbb;
+            font-size: 11px;
+            line-height: 1.5;
+            display: none;
+            max-width: 180px;
+            z-index: 100;
+        }
+
+        #edit-help kbd {
+            background: #555;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        .node-bc-popup {
+            position: absolute;
+            background: rgba(42, 42, 42, 0.95);
+            border: 2px solid #888;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+            color: #e0e0e0;
+            font-size: 12px;
+        }
+
+        .node-bc-popup .bc-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ccc;
+        }
+
+        .edge-popup {
+            position: absolute;
+            background: rgba(42, 42, 42, 0.95);
+            border: 2px solid #888;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+            color: #e0e0e0;
+            font-size: 12px;
+        }
+
+        .edge-popup .edge-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #ccc;
+        }
+
+        .edge-popup .edge-info {
+            color: #888;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .edge-popup input[type="number"] {
+            background: #333;
+            border: 1px solid #555;
+            color: #e0e0e0;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .node-bc-popup label {
+            display: block;
+            margin: 4px 0;
+            cursor: pointer;
+        }
+
+        .node-bc-popup input[type="checkbox"] {
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        .policy-status {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .policy-status.loading {
+            background: #444;
+            color: #aaa;
+        }
+
+        .policy-status.ready {
+            background: #2d4a2d;
+            color: #8bc34a;
+        }
+
+        .policy-status.error {
+            background: #4a2d2d;
+            color: #f44336;
+        }
+
+        .policy-status.unavailable {
+            background: #3a3a3a;
+            color: #888;
+        }
+
+        @keyframes flashAngle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Light mode styles */
+        body.light-mode, body.light-mode * {
+            color-scheme: light;
+        }
+
+        body.light-mode {
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        body.light-mode #sidebar {
+            background: #ffffff;
+            border-right: 2px solid #ddd;
+        }
+
+        body.light-mode h1 {
+            color: #333;
+        }
+
+        body.light-mode h2 {
+            color: #555;
+        }
+
+        body.light-mode h3 {
+            color: #777;
+        }
+
+        body.light-mode .info-section {
+            background: #f9f9f9;
+            border-left: 3px solid #999;
+        }
+
+        body.light-mode .info-label {
+            color: #666;
+        }
+
+        body.light-mode .info-value {
+            color: #222;
+        }
+
+        body.light-mode button {
+            background: #e0e0e0;
+            color: #222;
+        }
+
+        body.light-mode button:hover {
+            background: #d0d0d0;
+        }
+
+        body.light-mode button:disabled {
+            background: #f0f0f0;
+        }
+
+        body.light-mode button.danger {
+            background: #ccc;
+        }
+
+        body.light-mode button.danger:hover {
+            background: #bbb;
+        }
+
+        body.light-mode .legend {
+            background: #f9f9f9;
+        }
+
+        body.light-mode .viewport-button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #222;
+            border: 1px solid #ccc;
+        }
+
+        body.light-mode .viewport-button:hover {
+            background: rgba(230, 230, 230, 0.95);
+            border-color: #999;
+        }
+
+        body.light-mode .viewport-button.active {
+            background: rgba(230, 230, 230, 0.95);
+            border-color: #666;
+        }
+
+        body.light-mode canvas {
+            background: #ffffff;
+        }
+
+        body.light-mode select {
+            background: #f9f9f9;
+            color: #222;
+            border: 1px solid #ccc;
+        }
+
+        /* Styled here (not inline) so the light-mode overrides can win */
+        #geometry-selector {
+            width: 100%;
+            padding: 10px;
+            background: #2a2a2a;
+            color: #e0e0e0;
+            border: 1px solid #555;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        body.light-mode #geometry-selector {
+            background: #f9f9f9;
+            color: #222;
+            border-color: #ccc;
+        }
+
+        #range-history-canvas {
+            width: 100%;
+            height: 50px;
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        body.light-mode #range-history-canvas {
+            background: #fafafa;
+            border-color: #ccc;
+        }
+
+        /* Mobile warning overlay */
+        #mobile-warning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        #mobile-warning .warning-content {
+            max-width: 400px;
+        }
+
+        #mobile-warning h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        #mobile-warning .icon {
+            font-size: 64px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        #mobile-warning p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        body.light-mode #mobile-warning {
+            background: #f5f5f5;
+        }
+
+        body.light-mode #mobile-warning h1 {
+            color: #333;
+        }
+
+        body.light-mode #mobile-warning p {
+            color: #666;
+        }
+
+        body.light-mode #mobile-warning .icon {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            #mobile-warning {
+                display: flex;
+            }
+            #sidebar, #canvas-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="mobile-warning">
+        <div class="warning-content">
+            <div class="icon"><i class="fa-solid fa-desktop"></i></div>
+            <h1>Desktop Required</h1>
+            <p>Redundancy Explorer uses interactive canvas controls that require a larger screen.</p>
+            <p>Please visit this page on a desktop or laptop computer for the best experience.</p>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <h1>Redundancy Explorer</h1>
+
+        <div class="info-section">
+            <h2>System Info</h2>
+            <div class="info-item">
+                <span class="info-label">Nodes:</span>
+                <span class="info-value" id="node-count">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Edges:</span>
+                <span class="info-value" id="edge-count">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Step:</span>
+                <span class="info-value" id="step-count">0</span>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Redundancy Stats</h2>
+            <div class="info-item">
+                <span class="info-label">Min:</span>
+                <span class="info-value" id="min-redundancy">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Max:</span>
+                <span class="info-value" id="max-redundancy">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Range:</span>
+                <span class="info-value" id="range-redundancy">-</span>
+            </div>
+            <div style="margin-top: 8px;">
+                <div style="font-size: 11px; color: #888; margin-bottom: 3px;">Range history (per step)</div>
+                <canvas id="range-history-canvas" width="260" height="50"></canvas>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h2>Geometry</h2>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Select Truss</span>
+                </div>
+                <select id="geometry-selector">
+                    <!-- Geometries will be populated dynamically from the geometries folder -->
+                </select>
+                <div style="display: flex; gap: 8px; margin-bottom: 15px;">
+                    <button id="export-geometry-btn" style="flex: 1;" title="Download the current structure (including edits) as JSON"><i class="fa-solid fa-download"></i> Export</button>
+                    <button id="import-geometry-btn" style="flex: 1;" title="Load a structure from a JSON file"><i class="fa-solid fa-upload"></i> Import</button>
+                    <input type="file" id="import-geometry-input" accept=".json,application/json" style="display: none;">
+                </div>
+            </div>
+
+            <h2>Controls</h2>
+            <button id="reset-btn"><i class="fa-solid fa-arrow-rotate-right"></i> Reset Structure</button>
+            <button id="step-btn"><i class="fa-solid fa-forward-step"></i> Agent Step</button>
+            <button id="auto-btn"><i class="fa-solid fa-play"></i> Run Auto Step</button>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Auto Step Speed</span>
+                    <span id="speed-value">1ms</span>
+                </div>
+                <input type="range" id="speed-slider" min="1" max="1000" value="1" step="1">
+            </div>
+
+            <h2 style="margin-top: 20px;">Optimization Method</h2>
+            <div class="policy-status unavailable" id="policy-status">
+                Learned Policy: Not loaded
+            </div>
+
+            <h2 style="margin-top: 20px;">Gradient Descent</h2>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Learning Rate</span>
+                    <span id="learning-rate-value">0.01</span>
+                </div>
+                <input type="range" id="learning-rate-slider" min="0.001" max="0.1" value="0.01" step="0.001">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Gradient Epsilon</span>
+                    <span id="epsilon-value">0.0001</span>
+                </div>
+                <input type="range" id="epsilon-slider" min="0.00001" max="0.01" value="0.0001" step="0.00001">
+            </div>
+
+            <h2 style="margin-top: 20px;">Agent Behaviors</h2>
+
+            <h3 style="font-size: 15px; margin-top: 15px; margin-bottom: 8px; color: #888; font-weight: bold;">Redundancy Homogenization</h3>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Weight</span>
+                    <span id="redundancy-weight-value">1.00</span>
+                </div>
+                <input type="range" id="redundancy-weight-slider" min="0" max="1" value="1.0" step="0.01">
+            </div>
+
+            <h3 style="font-size: 15px; margin-top: 15px; margin-bottom: 8px; color: #888; font-weight: bold;">Target Segment Length</h3>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Weight</span>
+                    <span id="segment-weight-value">0.00</span>
+                </div>
+                <input type="range" id="segment-weight-slider" min="0" max="1" value="0.0" step="0.01">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Target Length</span>
+                    <span id="target-segment-value">1.00</span>
+                </div>
+                <input type="range" id="target-segment-slider" min="0.1" max="5.0" value="1.0" step="0.1">
+            </div>
+
+            <h3 style="font-size: 15px; margin-top: 15px; margin-bottom: 8px; color: #888; font-weight: bold;">Min/Max Segment Length</h3>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Weight</span>
+                    <span id="minmax-weight-value">0.00</span>
+                </div>
+                <input type="range" id="minmax-weight-slider" min="0" max="1" value="0.0" step="0.01">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Min Length</span>
+                    <span id="min-segment-value">0.50</span>
+                </div>
+                <input type="range" id="min-segment-slider" min="0.1" max="5.0" value="0.5" step="0.1">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Max Length</span>
+                    <span id="max-segment-value">2.00</span>
+                </div>
+                <input type="range" id="max-segment-slider" min="0.1" max="5.0" value="2.0" step="0.1">
+            </div>
+
+            <h3 style="font-size: 15px; margin-top: 15px; margin-bottom: 8px; color: #888; font-weight: bold;">Angle Constraint</h3>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Weight</span>
+                    <span id="angle-weight-value">0.00</span>
+                </div>
+                <input type="range" id="angle-weight-slider" min="0" max="1" value="0.0" step="0.01">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Min Angle (degrees)</span>
+                    <span id="min-angle-value">20°</span>
+                </div>
+                <input type="range" id="min-angle-slider" min="5" max="170" value="20" step="5">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Max Angle (degrees)</span>
+                    <span id="max-angle-value">160°</span>
+                </div>
+                <input type="range" id="max-angle-slider" min="10" max="175" value="160" step="5">
+            </div>
+
+            <h3 style="font-size: 15px; margin-top: 15px; margin-bottom: 8px; color: #888; font-weight: bold;" title="Property-based behavior: stiffen redundant elements, EA &lt;- (1 + gamma r) EA, mean-normalized">Cross-Section Adaptation</h3>
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Weight</span>
+                    <span id="cross-section-weight-value">0.00</span>
+                </div>
+                <input type="range" id="cross-section-weight-slider" min="0" max="1" value="0.0" step="0.01">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Gamma (step size)</span>
+                    <span id="cross-section-gamma-value">0.10</span>
+                </div>
+                <input type="range" id="cross-section-gamma-slider" min="0.01" max="0.5" value="0.1" step="0.01">
+            </div>
+
+        </div>
+
+        <div class="legend">
+            <h2>Legend</h2>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #555;"></div>
+                <span>Fixed Node</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #bbb;"></div>
+                <span>Free Node</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line" style="background: #FDE724;"></div>
+                <span>High Redundancy</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line" style="background: #440154;"></div>
+                <span>Low Redundancy</span>
+            </div>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #333; font-size: 12px; color: #999;">
+                All nodes are draggable. Redundancy updates in real-time.
+            </div>
+        </div>
+    </div>
+
+    <div id="canvas-container">
+        <div id="viewport-buttons">
+            <button id="view-toggle-btn" class="viewport-button">2D</button>
+            <button id="values-toggle-btn" class="viewport-button">Show Values</button>
+            <button id="grid-toggle-btn" class="viewport-button active">Grid</button>
+            <button id="scale-toggle-btn" class="viewport-button" title="Color scale: auto-ranged to the current distribution (on) or fixed [0, max] (off)">Auto Scale</button>
+            <button id="thickness-toggle-btn" class="viewport-button" title="Element width encodes stiffness EA relative to the mean">Width</button>
+            <button id="theme-toggle-btn" class="viewport-button">Dark</button>
+            <button id="policy-toggle-btn" class="viewport-button" title="Toggle between gradient heuristic and learned policy">Gradient</button>
+            <button id="edit-toggle-btn" class="viewport-button" title="Edit mode: click to add nodes, click two nodes to connect, click edge to delete, Shift+click node to delete">Edit</button>
+        </div>
+        <div id="edit-help">
+            <b>Edit Mode</b><br>
+            Click empty → add node (in 2D)<br>
+            Click node → select<br>
+            Click 2nd node → add edge<br>
+            Click edge → edit stiffness<br>
+            <kbd>Shift</kbd>+click → delete<br>
+            <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> → undo / redo<br>
+            <kbd>Delete</kbd> → delete selection, <kbd>Esc</kbd> → deselect
+        </div>
+        <div id="node-bc-popup" class="node-bc-popup" style="display: none;">
+            <div class="bc-title">Node <span id="bc-node-id">0</span></div>
+            <label><input type="checkbox" id="bc-fixed"> Fixed</label>
+            <hr style="border-color: #555; margin: 6px 0;">
+            <div style="color: #888; margin-bottom: 4px;">Constraints:</div>
+            <label><input type="checkbox" id="bc-x"> Fix X</label>
+            <label><input type="checkbox" id="bc-y"> Fix Y</label>
+            <label><input type="checkbox" id="bc-z"> Fix Z</label>
+        </div>
+        <div id="edge-popup" class="edge-popup" style="display: none;">
+            <div class="edge-title">Edge <span id="edge-popup-id">0</span></div>
+            <div class="edge-info">
+                <span id="edge-popup-nodes"></span>
+            </div>
+            <hr style="border-color: #555; margin: 6px 0;">
+            <label>
+                Stiffness:
+                <input type="number" id="edge-stiffness" step="0.01" style="width: 80px; margin-left: 5px;">
+            </label>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
+    <!-- ONNX Runtime Web for efficient policy inference -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.17.0/dist/ort.min.js"></script>
+    <script src="redundancy-matrix.js"></script>
+    <script src="policy_learning/gnn_policy_inference.js"></script>
+    <script type="module" src="js/core.js"></script>
+</body>
+</html>

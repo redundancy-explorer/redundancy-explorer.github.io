@@ -1,0 +1,1248 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "x": -10.93,
+      "y": 0,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 1,
+      "x": -9.04,
+      "y": 6.57,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 2,
+      "x": -3.39,
+      "y": 10.4,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 3,
+      "x": 3.45,
+      "y": 10.63,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 4,
+      "x": 8.84,
+      "y": 6.43,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 5,
+      "x": 11.17,
+      "y": 0,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 6,
+      "x": 8.84,
+      "y": -6.43,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 7,
+      "x": 3.45,
+      "y": -10.63,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 8,
+      "x": -3.38,
+      "y": -10.4,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 9,
+      "x": -9.04,
+      "y": -6.57,
+      "z": 0.05,
+      "fixed": true,
+      "dirichlet_bc": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 10,
+      "x": -8.33,
+      "y": -2.99,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 11,
+      "x": -8.33,
+      "y": 2.99,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 12,
+      "x": -5.41,
+      "y": 6.99,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 13,
+      "x": 0.27,
+      "y": 8.84,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 14,
+      "x": 4.98,
+      "y": 7.31,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 15,
+      "x": 8.49,
+      "y": 2.48,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 16,
+      "x": 8.49,
+      "y": -2.48,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 17,
+      "x": 4.99,
+      "y": -7.31,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 18,
+      "x": 0.27,
+      "y": -8.84,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 19,
+      "x": -5.41,
+      "y": -6.99,
+      "z": 3.06,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 20,
+      "x": -7.18,
+      "y": 0,
+      "z": 4.01,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 21,
+      "x": -2.22,
+      "y": 6.83,
+      "z": 4.01,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 22,
+      "x": 5.81,
+      "y": 4.22,
+      "z": 4.01,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 23,
+      "x": 5.81,
+      "y": -4.22,
+      "z": 4.01,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 24,
+      "x": -2.22,
+      "y": -6.83,
+      "z": 4.01,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 25,
+      "x": 6.52,
+      "y": 0,
+      "z": 4.77,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 26,
+      "x": 2.01,
+      "y": -6.2,
+      "z": 4.77,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 27,
+      "x": -5.28,
+      "y": -3.83,
+      "z": 4.77,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 28,
+      "x": -5.28,
+      "y": 3.83,
+      "z": 4.77,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 29,
+      "x": 2.02,
+      "y": 6.2,
+      "z": 4.77,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 30,
+      "x": 3.45,
+      "y": -2.5,
+      "z": 6.48,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 31,
+      "x": -1.32,
+      "y": -4.05,
+      "z": 6.48,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 32,
+      "x": -4.26,
+      "y": 0,
+      "z": 6.48,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 33,
+      "x": -1.32,
+      "y": 4.05,
+      "z": 6.48,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 34,
+      "x": 3.45,
+      "y": 2.5,
+      "z": 6.48,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    },
+    {
+      "id": 35,
+      "x": 0,
+      "y": 0,
+      "z": 6.79,
+      "fixed": false,
+      "dirichlet_bc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius": 0.2
+    }
+  ],
+  "edges": [
+    {
+      "id": 0,
+      "source": 0,
+      "target": 10,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 1,
+      "source": 0,
+      "target": 11,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 2,
+      "source": 11,
+      "target": 1,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 3,
+      "source": 1,
+      "target": 12,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 4,
+      "source": 12,
+      "target": 2,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 13,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 6,
+      "source": 13,
+      "target": 3,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 14,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 8,
+      "source": 14,
+      "target": 4,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 9,
+      "source": 4,
+      "target": 15,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 10,
+      "source": 15,
+      "target": 5,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 11,
+      "source": 5,
+      "target": 16,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 12,
+      "source": 16,
+      "target": 6,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 13,
+      "source": 6,
+      "target": 17,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 14,
+      "source": 17,
+      "target": 7,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 15,
+      "source": 7,
+      "target": 18,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 16,
+      "source": 18,
+      "target": 8,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 17,
+      "source": 8,
+      "target": 19,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 18,
+      "source": 19,
+      "target": 9,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 19,
+      "source": 9,
+      "target": 10,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 20,
+      "source": 10,
+      "target": 20,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 21,
+      "source": 20,
+      "target": 11,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 22,
+      "source": 11,
+      "target": 28,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 23,
+      "source": 28,
+      "target": 12,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 24,
+      "source": 12,
+      "target": 21,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 25,
+      "source": 21,
+      "target": 13,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 26,
+      "source": 13,
+      "target": 29,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 27,
+      "source": 23,
+      "target": 30,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 28,
+      "source": 29,
+      "target": 14,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 29,
+      "source": 14,
+      "target": 22,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 30,
+      "source": 22,
+      "target": 15,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 31,
+      "source": 15,
+      "target": 25,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 32,
+      "source": 25,
+      "target": 16,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 33,
+      "source": 16,
+      "target": 23,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 34,
+      "source": 23,
+      "target": 17,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 35,
+      "source": 17,
+      "target": 26,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 36,
+      "source": 26,
+      "target": 18,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 37,
+      "source": 18,
+      "target": 24,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 38,
+      "source": 24,
+      "target": 19,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 39,
+      "source": 19,
+      "target": 27,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 40,
+      "source": 27,
+      "target": 10,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 41,
+      "source": 20,
+      "target": 32,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 42,
+      "source": 28,
+      "target": 32,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 43,
+      "source": 28,
+      "target": 33,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 44,
+      "source": 21,
+      "target": 33,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 45,
+      "source": 29,
+      "target": 33,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 46,
+      "source": 29,
+      "target": 34,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 47,
+      "source": 22,
+      "target": 34,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 48,
+      "source": 25,
+      "target": 34,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 49,
+      "source": 25,
+      "target": 30,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 50,
+      "source": 30,
+      "target": 26,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 51,
+      "source": 26,
+      "target": 31,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 52,
+      "source": 31,
+      "target": 24,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 53,
+      "source": 31,
+      "target": 27,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 54,
+      "source": 27,
+      "target": 32,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 55,
+      "source": 32,
+      "target": 35,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 56,
+      "source": 33,
+      "target": 35,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 57,
+      "source": 34,
+      "target": 35,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 58,
+      "source": 30,
+      "target": 35,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    },
+    {
+      "id": 59,
+      "source": 31,
+      "target": 35,
+      "redundancy": 0,
+      "stiffness": 4968000,
+      "EA": 4968000,
+      "EIy": 271200,
+      "EIz": 271200,
+      "GJ": 193000
+    }
+  ],
+  "config": {
+    "type": "beam",
+    "view_plane": "XY",
+    "up_axis": "z",
+    "auto_fit": true
+  }
+}
